@@ -1,0 +1,22 @@
+<h1>Students#index</h1>
+<p>Find me in app/views/students/index.html.erb</p>
+<br>
+<%= link_to "new ", new_student_path %>
+<table>
+	<thead>
+		<th><strong>name</strong>
+		<th><strong>email</strong>
+		<th><strong>view</strong>
+		<th><strong>edit</strong>
+		<th><strong>delete</strong>
+	</thead>
+	<tbody>
+		<% @students.each do |s| %>
+      <strong><%= s.name %> </strong>
+      <strong><%= s.email %> </strong>
+      <%= link_to "view", student_path(s) %>
+      <%= link_to "edit", edit_student_path(s) %>
+      <%= button_to "delete", student_path(s), method: :delete %>
+    <% end %>
+	</tbody>
+</table>
